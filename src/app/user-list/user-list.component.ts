@@ -36,7 +36,6 @@ export class UserListComponent implements OnInit {
     let a = document.createElement('a');
     a.href = 'data:' + csvrecord;
     a.download = 'data.csv';
-    a.innerHTML = 'download CSV';
     let downloadButton = document.getElementById('downloadButton');
     downloadButton.appendChild(a);
   }

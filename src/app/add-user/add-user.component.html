@@ -1,33 +1,27 @@
-<div class="pt-3 pb-2 mb-3 border-bottom">
-  <h1 class="h2">Add User</h1>
-</div>
+<h1 class="h2">Add User</h1>
 
-<form #myForm="ngForm" novalidate>
-  <div class="row">
-    <div class="col-lg-5 col-md-12 col-sm-12">
-      <div class="row">
+<form #myForm="ngForm">
+  <div class="form-group mt-3">
+    <label for="name">Name</label>
+    <input class="form-control mb-2" type="text" ngModel name="name" id="name" required>
 
-        <div class="col-md-12 mb-3">
-          <label>Name</label>
-          <input type="text" ngModel name="name" id="name" class="form-control" required>
-        </div>
+    <label for="userID">Email</label>
+    <input class="form-control mb-2" type="email" ngModel name="email" id="email" required>
 
-        <div class="col-md-12 mb-3">
-          <label>User ID</label>
-          <input type="text" ngModel name="userID" class="form-control" required>
-        </div>
+    <label for="userID"> User ID</label>
+    <input class="form-control" type="text" ngModel name="userID" id="userID" required>
+  </div>
 
-        <div class="col-md-12 mb-3" ngModelGroup="rolesSelected" *ngFor="let role of roleNameArray; let i = index;">
-          <input ngModel name="{{roleNameArray[i]}}" (change)="getSelectedRoles(myForm)" id="checkbox{{i}}"
-            type="checkbox">
-          <label for="{{roleNameArray[i]}}">{{roleNameArray[i]}}</label>
-        </div>
+  <h5>Roles</h5>
+  <div class="form-check form-check-inline" ngModelGroup="rolesSelected"
+    *ngFor="let role of roleNameArray; let i = index;">
+    <input class="form-check-input" ngModel name="{{roleNameArray[i]}}" (change)="getSelectedRoles(myForm)"
+      id="checkbox{{i}}" type="checkbox">
+    <label class="form-check-label" for="checkbox{{i}}">{{roleNameArray[i]}}</label>
+  </div>
 
-        <div class="form-group text-right">
-          <button type="button" (click)="handleSubmit(myForm)" class="btn btn-success" routerLink="/view-users">Add User</button>
-        </div>
-
-      </div>
-    </div>
+  <div class="mt-4">
+    <button class="btn btn-success" type="button" (click)="handleSubmit(myForm)" routerLink="/view-users">Add
+      User</button>
   </div>
 </form>

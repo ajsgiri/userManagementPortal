@@ -57,6 +57,7 @@ export class AddUserComponent implements OnInit {
     this.user = {
       $key: key,
       name: myForm.value.name,
+      email: myForm.value.email,
       userID: myForm.value.userID,
       roles: this.getSelectedRoles(myForm),
     }

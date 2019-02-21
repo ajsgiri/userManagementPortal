@@ -1,49 +1,32 @@
-<nav>
-  <a routerLink="/add-user">
-    <h1> User management Portal</h1>
-  </a>
-</nav>
+<div class="d-flex flex-column flex-lg-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+  <h1 class="flex-grow-1" routerLink="/view-users"> User Management Portal</h1>
 
-<div class="container-fluid">
-  <div class="row">
-    <nav class="col-md-2 d-md-block bg-light sidebar">
-      <div class="sidebar-sticky">
-        <ul class="nav flex-column">
+  <nav class="nav my-2 my-md-0 mr-md-3">
 
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/add-user" routerLinkActive="active">
-              <i class="fas fa-plus"></i>Add User
-            </a>
-          </li>
+    <a class="nav-link" routerLink="/view-users" routerLinkActive="active">
+      User List
+    </a>
 
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/view-users" routerLinkActive="active">
-              <i class="fas fa-list-ul"></i>User List
-            </a>
-          </li>
 
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/add-role" routerLinkActive="active">
-              <i class="fas fa-list-ul"></i>Add Role
-            </a>
-          </li>
+    <a class="nav-link" routerLink="/add-user" routerLinkActive="active">
+      Add User
+    </a>
 
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/view-roles" routerLinkActive="active">
-              <i class="fas fa-list-ul"></i>Role List
-            </a>
-          </li>
-        </ul>
-      </div>
-    </nav>
 
-    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-      <div class="inner-adjust">
+    <a class="nav-link" routerLink="/view-roles" routerLinkActive="active">
+      Role List
+    </a>
 
-        <router-outlet></router-outlet>
 
-      </div>
-    </main>
-
-  </div>
+    <a class="nav-link" routerLink="/add-role" routerLinkActive="active">
+      Add Role
+    </a>
+  </nav>
 </div>
+
+<main class="d-flex justify-content-center mt-5">
+  <div class="inner-adjust w-50">
+      <router-outlet></router-outlet>
+  </div>
+
+</main>

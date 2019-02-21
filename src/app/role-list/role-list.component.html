@@ -1,38 +1,34 @@
-<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-  <h1 class="h2">Role List</h1>
-</div>
+<h1 class="h2 mb-3">Role List</h1>
 
-<div class="pricing-header mx-auto">
-  <div class="table-responsive">
-    <table class="table table-bordered table-responsive-sm table-responsive-md table-responsive-lg">
-      <thead>
-        <tr>
-          <th scope="col">Name</th>
-          <th scope="col">Role ID</th>
-          <th scope="col">Permissions</th>
-          <th class="text-center" scope="col">Manage</th>
-        </tr>
-      </thead>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Role ID</th>
+      <th scope="col">Permissions</th>
+      <th scope="col">Manage</th>
+    </tr>
+  </thead>
 
-      <tr *ngFor="let role of roleList; let i = index;">
-        <td>{{role.name}}</td>
-        <td>{{role.roleID}}</td>
-        <td>
-          <p *ngFor="let perm of role.permissions">{{perm}}</p>
-        </td>
-        <td>
-          <p><a routerLink="/edit-role/{{role.$key}}">Edit</a></p>
-          <button (click)="deleteRole(role)">Delete</button>
-      </tr>
-      </tbody>
-    </table>
-  </div>
+  <tbody>
+    <tr *ngFor="let role of roleList; let i = index;">
+      <td>{{i+1}}</td>
+      <td>{{role.name}}</td>
+      <td>{{role.roleID}}</td>
+      <td>
+        <p *ngFor="let perm of role.permissions">{{perm}}</p>
+      </td>
+      <td class="d-flex justify-content-around">
+        <a routerLink="/edit-role/{{role.$key}}">Edit</a>
+        <a class="text-primary pl-2" (click)="deleteRole(role)">Delete</a>
+    </tr>
+  </tbody>
 
-  <div class="no-data text-center">
-    <a routerLink="/add-role" class="btn btn-success">
-      <i class="fas fa-plus custom-fa-plus"></i>
-      Add Role
-    </a>
-  </div>
+</table>
 
+<div class="d-flex justify-content-around">
+  <a routerLink="/add-role" class="btn btn-success">
+    Add Role
+  </a>
 </div>

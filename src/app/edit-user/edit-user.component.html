@@ -1,39 +1,31 @@
-<div class="pt-3 pb-2 mb-3 border-bottom">
-  <h1 class="h2">Edit User</h1>
-</div>
-
-<form #myForm="ngForm" novalidate>
-  <div class="row">
-    <div class="col-lg-5 col-md-12 col-sm-12">
-      <div class="row">
-
-        <div class="col-md-12 mb-3">
-          <label>Name</label>
-          <input type="text" [(ngModel)]="user.name" ngModel name="name" id="name" class="form-control" required>
-        </div>
-
-        <div class="col-md-12 mb-3">
-          <label>User ID</label>
-          <input type="text" [(ngModel)]="user.userID" ngModel name="userID" class="form-control" required>
-        </div>
-
-        <div class="col-md-12 mb-3" *ngIf="roleNameArray.length > 0">
-            <div ngModelGroup="rolesSelected"  *ngFor="let role of roleNameArray; let i = index;">
-                <input ngModel name="{{roleNameArray[i]}}" (change)="getSelectedRoles(myForm)" id="checkbox{{i}}"
-                  type="checkbox">
-                <label for="{{roleNameArray[i]}}">{{roleNameArray[i]}}</label>
-              </div>
-
-        </div>
+<h1 class="h2">Edit User</h1>
 
 
-        <div class="form-group text-right">
-          <button type="button" (click)="handleSubmit(myForm)" 
-           class="btn btn-success" routerLink="/view-users">Edit User
-          </button>
-        </div>
+<form #myForm="ngForm">
+  <div class="form-group mt-3">
+    <label>Name</label>
+    <input class="form-control mb-4" type="text" [(ngModel)]="user.name" ngModel name="name" id="name" required>
 
-      </div>
-    </div>
+    <label for="userID">Email</label>
+    <input class="form-control mb-2" type="email" [(ngModel)]="user.email" ngModel name="email" id="email" required>
+
+    <label>User ID</label>
+    <input class="form-control" type="text" [(ngModel)]="user.userID" ngModel name="userID" required>
   </div>
+
+  <h5>Roles</h5>
+
+  <div class="form-check form-check-inline" ngModelGroup="rolesSelected"
+    *ngFor="let role of roleNameArray; let i = index;">
+    <input class="form-check-input" ngModel name="{{roleNameArray[i]}}" (change)="getSelectedRoles(myForm)"
+      id="checkbox{{i}}" type="checkbox">
+    <label class="form-check-label" for="{{roleNameArray[i]}}">{{roleNameArray[i]}}</label>
+  </div>
+
+  <div class="mt-4" >
+    <button class="mt-3 btn btn-success" type="button" (click)="handleSubmit(myForm)" routerLink="/view-users">Edit
+      User</button>
+  </div>
+
+
 </form>
