@@ -45,7 +45,6 @@ export class AddUserComponent implements OnInit {
         return role;
       }
     })
-    console.log(this.selectedRolesArray);
     return this.selectedRolesArray;
 
   }
@@ -61,7 +60,6 @@ export class AddUserComponent implements OnInit {
       userID: myForm.value.userID,
       roles: this.getSelectedRoles(myForm),
     }
-    console.log(this.user);
     this.crudApi.addUser(this.user);
   }
 

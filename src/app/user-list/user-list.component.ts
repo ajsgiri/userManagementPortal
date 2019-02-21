@@ -17,7 +17,6 @@ export class UserListComponent implements OnInit {
   ngOnInit() {
     this.userList = this.crudApi.getUserList();
     this.roleNamesList = this.userList.map(user => user.roles);
-    this.downloadUsers()
   }
 
   deleteUser(user: User) {
@@ -27,16 +26,19 @@ export class UserListComponent implements OnInit {
   }
 
   downloadUsers() {
-    let downloadList = this.userList;
-    let csvrecord = Object.keys(downloadList[0]).join(',') + '\n';
-    downloadList.forEach(function (jsonrecord) {
-      csvrecord += Object.values(jsonrecord).join(',') + '\n';
-    });
-    csvrecord = "key," + csvrecord;
-    let a = document.createElement('a');
-    a.href = 'data:' + csvrecord;
-    a.download = 'data.csv';
-    let downloadButton = document.getElementById('downloadButton');
-    downloadButton.appendChild(a);
+    if (this.userList.length) {
+      let downloadList = this.userList;
+      let csvrecord = Object.keys(downloadList[0]).join(',') + '\n';
+      downloadList.forEach(function (jsonrecord) {
+        csvrecord += Object.values(jsonrecord).join(',') + '\n';
+      });
+      csvrecord = "key," + csvrecord;
+      let a = document.createElement('a');
+      a.href = 'data:' + csvrecord;
+      a.download = 'data.csv';
+      let downloadButton = document.getElementById('downloadButton');
+      downloadButton.appendChild(a);
+      a.click();
+    }
   }
 }

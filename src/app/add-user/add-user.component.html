@@ -21,7 +21,7 @@
   </div>
 
   <div class="mt-4">
-    <button class="btn btn-success" type="button" (click)="handleSubmit(myForm)" routerLink="/view-users">Add
+    <button class="btn btn-success" [disabled]="!myForm.form.valid" type="button" (click)="handleSubmit(myForm)" routerLink="/view-users">Add
       User</button>
   </div>
 </form>

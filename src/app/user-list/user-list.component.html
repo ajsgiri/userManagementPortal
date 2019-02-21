@@ -29,9 +29,8 @@
 
 </table>
 
-<div class="d-flex flex-column">
-  <a routerLink="/add-user" class="btn btn-success btn-lg mb-3 ">
-    Add User
-  </a>
-  <div class="btn btn-success bg-secondary btn-lg text-white" id="downloadButton">Download Data</div>
+<div class="d-flex flex-column mt-5">
+  <button routerLink="/add-user" class="btn btn-success btn-lg mb-3">Add User</button>
+  <div class="btn btn-success bg-secondary btn-lg text-white" (click)="downloadUsers()">Download Data</div>
+  <div id="downloadButton"></div>
 </div>

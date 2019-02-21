@@ -41,7 +41,6 @@ export class EditUserComponent implements OnInit {
         this.selectedRoles.push(roleName);
       }
     });
-    console.log(this.selectedRoles);
     return this.selectedRoles;
   }
 

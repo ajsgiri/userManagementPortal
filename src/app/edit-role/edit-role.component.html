@@ -1,12 +1,12 @@
 <h1 class="h2">Edit Role</h1>
 
-<form #myForm="ngForm" novalidate>
+<form #myForm="ngForm">
   <div class="form-group mt-3">
     <label for="roleName">Name</label>
     <input class="form-control mb-4" type="text" [(ngModel)]="role.name" ngModel name="roleName" id="roleName" required>
 
     <label for="roleId">Role ID</label>
-    <input class="form-control" type="text" [(ngModel)]="role.roleID" ngModel name="roleID" id="roleId">
+    <input class="form-control" type="text" [(ngModel)]="role.roleID" ngModel name="roleID" id="roleId" required>
   </div>
 
   <h5>Permissions</h5>
@@ -17,7 +17,7 @@
   </div>
 
   <div>
-    <button class="mt-3 btn btn-success" type="button" (click)="handleSubmit(myForm)" routerLink="/view-roles">Edit
+    <button class="mt-3 btn btn-success" type="button" [disabled]="!myForm.form.valid" (click)="handleSubmit(myForm)" routerLink="/view-roles">Edit
       Role</button>
   </div>
 
