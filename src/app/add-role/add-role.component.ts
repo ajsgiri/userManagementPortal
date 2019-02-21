@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { CrudService } from '../shared/crud.service'; 
 import { Role } from '../shared/role';
 
@@ -21,9 +20,9 @@ export class AddRoleComponent implements OnInit {
   }
 
   getSelectedPermission(myForm) {
-    this.selectedPermission = [];
+    this.selectedPermission = [];  // reset to handle toggling of buttons
     this.permissions.forEach((perm, i) => {
-      if (myForm.value.permissions[perm] == true) {
+      if (myForm.value.permissions[perm] == true) { // compare from values with all names
         this.selectedPermission.push(perm);
       }
     })

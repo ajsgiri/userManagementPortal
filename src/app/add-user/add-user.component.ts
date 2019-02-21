@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { CrudService } from '../shared/crud.service';
 import { User } from '../shared/user';
 import { Role } from '../shared/role';
-import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'; // Reactive form services
 
 @Component({
   selector: 'app-add-user',

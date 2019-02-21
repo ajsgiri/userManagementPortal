@@ -31,7 +31,7 @@ export class EditUserComponent implements OnInit {
     const id = this.actRoute.snapshot.paramMap.get('id');
     this.user = this.crudApi.getUser(id);
     this.roleList = this.crudApi.getRoleList();
-    this.roleNameArray = this.roleList.map( role => role.name);
+    this.roleNameArray = this.roleList.map( role => role.name); // get names of all roles
   }
 
   getSelectedRoles(myForm) {

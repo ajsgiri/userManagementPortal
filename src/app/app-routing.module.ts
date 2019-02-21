@@ -9,7 +9,7 @@ import { UserListComponent } from './user-list/user-list.component';
 import { RoleListComponent } from './role-list/role-list.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/add-user', pathMatch: 'full' },
+  { path: '', redirectTo: '/add-role', pathMatch: 'full' },
   { path: 'add-user', component: AddUserComponent },
   { path: 'view-users', component: UserListComponent },
   { path: 'edit-user/:id', component: EditUserComponent },
