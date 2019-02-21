@@ -1,0 +1,39 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+  <h1 class="h2">User List</h1>
+</div>
+
+<div class="pricing-header mx-auto">
+  <div class="table-responsive">
+    <table class="table table-bordered table-responsive-sm table-responsive-md table-responsive-lg">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">UserID</th>
+          <th scope="col">Roles</th>
+          <th class="text-center" scope="col">Manage</th>
+        </tr>
+      </thead>
+
+      <tr *ngFor="let user of userList; let i = index;">
+        <td>{{user.name}}</td>
+        <td>{{user.userID}}</td>
+        <td>
+          <p *ngFor="let role of roleNamesList[i]">{{role}}</p>
+        </td>
+        <td>
+          <p><a routerLink="/edit-user/{{user.$key}}">Edit</a></p>
+          <button (click)="deleteUser(user)">Delete</button>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="no-data text-center">
+    <a routerLink="/add-user" class="btn btn-success">
+      <i class="fas fa-plus custom-fa-plus"></i>
+      Add User
+    </a>
+    <div id="downloadButton"></div>
+  </div>
+
+</div>

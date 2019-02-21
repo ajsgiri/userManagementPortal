@@ -1,0 +1,34 @@
+<div class="pt-3 pb-2 mb-3 border-bottom">
+  <h1 class="h2">Edit Role</h1>
+</div>
+
+<form #myForm="ngForm" novalidate>
+  <div class="row">
+    <div class="col-lg-5 col-md-12 col-sm-12">
+      <div class="row">
+
+        <div class="col-md-12 mb-3">
+          <label>Name</label>
+          <input type="text" [(ngModel)]="role.name" ngModel name="roleName" id="roleName" class="form-control"
+            required>
+        </div>
+
+        <div class="col-md-12 mb-3">
+          <label>Role ID</label>
+          <input type="text" [(ngModel)]="role.roleID" ngModel name="roleID" class="form-control">
+        </div>
+
+        <div class="col-md-12 mb-3" ngModelGroup="permissions" *ngFor="let perm of permissions; let i = index;">
+          <input ngModel name="{{permissions[i]}}" (change)="getSelectedPermission(myForm)" id="checkbox{{i}}"
+            type="checkbox">
+          <label for="{{permissions[i]}}">{{permissions[i]}}</label>
+        </div>
+
+        <div class="form-group text-right">
+          <button type="button" (click)="handleSubmit(myForm)" class="btn btn-success" routerLink="/view-roles" >Edit Role</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</form>
